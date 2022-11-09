@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 1</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <form>
+        <fieldset>
+            <label for=""> Ingresá cuantas personas hay en el grupo familiar: 
+                <input type="number" placeholder="cantidad de integrantes" id="integrantes">
+            </label> <br>
+            <button type="submit" id="boton-cantidad">Ingresar</button>
+            <button id="reinicio-general" type="reset">reiniciar</button>    
+        </fieldset>
+
+        <div id="errores" class="oculto"></div>
+
+        <div id="contenedor-inputs-nuevos"></div> 
+
+        <button id="calculo-edades" class="oculto">calcular</button>
+        <button id="reinicio" class="oculto" type="reset">reiniciar</button> 
+
+    </form>
+
+    <div class="oculto" id="mensaje">
+        <p>La edad mayor es: <strong id="edad-mayor"></strong></p>
+        <p>La edad menor es: <strong id="edad-menor"></strong></p>
+        <p>El promedio de edades es: <strong id="edad-promedio"></strong></p>
+    </div>
+      
+    <script type="text/javascript" src="./js/calculos.js"></script>
+    <script type="text/javascript" src="./js/validaciones.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/pruebas.js"></script>
+</body>
+</html>
