@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 2</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+    <form>
+        <fieldset>
+            <label for=""> Ingresá cuantas personas hay en el grupo familiar:             
+            </label> <br>
+            <button id="sumar-integrante">sumar integrante</button>
+            <button id="restar-integrante">quitar integrante</button> 
+            <button id="reiniciar">reiniciar</button> 
+        </fieldset>
+
+        <div id="contenedor-inputs-nuevos"></div>
+  
+        <button id="calcular-salario" class="oculto" type="submit">calcular</button>
+    
+    </form>
+
+    <div id="errores"></div>
+
+    <div class="oculto" id="calculo">
+        <p>mayor salario anual: <em id="mayor-salario"></em></p>
+        <p>menor salario anual: <em id="menor-salario"></em></p>
+        <p>salario anual promedio: <em id="promedio-salario"></em></p>
+        <p>salario mensual promedio: <em id="promedio-mensual-salario"></em></p>
+    </div>
+
+    <script src="./js/funciones.js" type="text/javascript"></script>
+    <script src="../ejercicio-1/js/calculos.js" type="text/javascript"></script>
+    <script src="./js/script.js" type="text/javascript"></script>
+    <script src="./js/pruebas.js" type="text/javascript"></script>
+</body>
+
+</html>
