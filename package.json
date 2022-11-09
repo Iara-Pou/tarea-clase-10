@@ -1,0 +1,22 @@
+{
+  "name": "tarea-clase-10",
+  "version": "1.0.0",
+  "description": "tarea de la clase 6 con mejoras en la interfaz y código",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iara-Pou/tarea-clase-10.git"
+  },
+  "author": "Iara Pou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iara-Pou/tarea-clase-10/issues"
+  },
+  "homepage": "https://github.com/Iara-Pou/tarea-clase-10#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.2"
+  }
+}
