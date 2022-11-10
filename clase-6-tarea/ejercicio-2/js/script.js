@@ -34,6 +34,7 @@ function crearBotonRemover(elementoPadre) {
         elementoPadre.remove();
         if($contenedor.innerHTML === ""){
             esconderBotonCalcular();
+            borrarErroresAnteriores();
         }
     }
 
