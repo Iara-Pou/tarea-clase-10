@@ -62,17 +62,8 @@ const $contenedor = document.querySelector("#contenedor-inputs-nuevos")
 const $mensaje = document.querySelector("#calculo");
 
 const $botonSumarIntegrante = document.querySelector("#sumar-integrante");
-const $botonQuitarIntegrante = document.querySelector("#restar-integrante");
 const $botonCalcular = document.querySelector("#calcular-salario");
 const $botonReiniciar = document.querySelector("#reiniciar")
-
-$botonQuitarIntegrante.onclick = function () {
-    $contenedor.removeChild($contenedor.lastChild);
-    if ($contenedor.innerHTML === "") {
-        esconderBotonCalcular();
-    }
-    return false;
-}
 
 $botonReiniciar.onclick = function () {
     borrarElementos();
