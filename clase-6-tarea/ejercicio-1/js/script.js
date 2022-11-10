@@ -73,7 +73,7 @@ function conseguirInputPorValor(valor){
 }
 
 function esconderErrores() {
-    $contenedorErrores.classList = "oculto"
+    $contenedorErrores.classList.add("oculto");
 }
 
 function vaciarErroresAnteriores(){
