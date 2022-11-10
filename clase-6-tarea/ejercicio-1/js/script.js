@@ -94,8 +94,7 @@ function vaciarContenedorInputs() {
 }
 
 function esconderMensajeFinal() {
-    let $mensaje = document.querySelector("#mensaje");
-    $mensaje.classList.add("oculto");
+    document.querySelector("#mensaje").classList.add("oculto");
 }
 
 function esconderBotones() {
