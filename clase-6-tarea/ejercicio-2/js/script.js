@@ -18,8 +18,9 @@ function crearInputLabels(elementoPadre) {
     let labelNuevo = document.createElement("label");
     let inputNuevo = document.createElement("input");
 
-    inputNuevo.classList.add("salario");
-    labelNuevo.textContent = `ingresá su salario anual: `;
+    inputNuevo.classList ="salario form-control";
+    labelNuevo.textContent = `Ingresá su salario anual`;
+    labelNuevo.classList = "form-label  col-sm-9";
 
     elementoPadre.appendChild(labelNuevo);
     labelNuevo.appendChild(inputNuevo);
@@ -28,7 +29,7 @@ function crearInputLabels(elementoPadre) {
 function crearBotonRemover(elementoPadre) {
     let botonRemover = document.createElement("button");
     botonRemover.textContent = `Eliminar integrante`;
-    botonRemover.classList="boton-remover ";
+    botonRemover.classList="boton-remover btn btn-danger col-sm-3 ";
 
     botonRemover.onclick = function (){
         elementoPadre.remove();
@@ -101,6 +102,7 @@ $botonSumarIntegrante.onclick = function () {
 
 function crearIntegranteNuevo(){
     const contenedorIntegrante = document.createElement("div");
+    contenedorIntegrante.classList = "row";
     $contenedor.appendChild(contenedorIntegrante);
 
     crearInputLabels(contenedorIntegrante);
