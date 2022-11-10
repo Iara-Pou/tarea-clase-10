@@ -48,12 +48,16 @@ function manejarErroresEdades (erroresEdades){
             contadorErrores++;
 
             $contenedorErrores.classList.remove("oculto");
+            $contenedorErrores.textContent = "Algunos inputs tienen valores equivocados, por favor, revisalos."
 
-            let textoError = document.createElement("p");
-            textoError.textContent = error;
-            $contenedorErrores.appendChild(textoError);
+            conseguirInputPorValor(edad).forEach(input => {
+                input.classList.add("input-error");
 
-            conseguirInputPorValor(edad).forEach(error => error.classList.add("input-error"));
+                let textoError = document.createElement("p");
+                textoError.textContent = error;
+                textoError.classList = "form-text text-danger"
+                input.after(textoError)
+            });
 
         } else {
             conseguirInputPorValor(edad).forEach(error => error.classList.remove("input-error"));
