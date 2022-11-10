@@ -7,15 +7,6 @@ fieldset{
     background-color: lightgray;
 }
 
-label{
-    display: block;
-    margin-top: 1.5%;
-}
-
-label:last-of-type{
-    margin-bottom: 1.5%;
-}
-
 .oculto{
     display: none;
 }
