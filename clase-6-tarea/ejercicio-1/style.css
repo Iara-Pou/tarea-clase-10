@@ -10,3 +10,6 @@ body{
     border: 2px solid rgb(250, 78, 78);
 }
 
+#errores{
+    margin: 0 auto;
+}
