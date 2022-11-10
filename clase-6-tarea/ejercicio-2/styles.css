@@ -15,3 +15,8 @@ margin: 2% auto;
 .error{
     border: 2px solid red;
 }
+
+.boton-remover{
+    height: 90%;
+    margin-top: 2.5%;
+}
