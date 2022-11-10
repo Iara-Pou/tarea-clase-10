@@ -31,6 +31,9 @@ function crearBotonRemover(elementoPadre) {
 
     botonRemover.onclick = function (){
         elementoPadre.remove();
+        if($contenedor.innerHTML === ""){
+            esconderBotonCalcular();
+        }
     }
 
     elementoPadre.appendChild(botonRemover);
