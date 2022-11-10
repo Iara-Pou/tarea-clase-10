@@ -15,20 +15,20 @@
         <form>
             <div class="row alert alert-primary">
                     <h5>Ingresá cuantas personas hay en el grupo familiar</h5>
-                    <button id="sumar-integrante" class="col-4 btn btn-primary">sumar integrante</button>
+                    <button id="sumar-integrante" class="col-4 btn btn-primary me-2">sumar integrante</button>
                     <button id="reiniciar" class="col-4 btn btn-secondary">reiniciar</button>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div id="contenedor-inputs-nuevos" class="col-10"></div>
-                <button id="calcular-salario" class="col-6 oculto btn btn-success" type="submit">calcular</button>
+                <button id="calcular-salario" class="col-10 oculto btn btn-success mb-4" type="submit">calcular</button>
             </div>
         </form>
         <section>
             <div class="row">
-                <div id="errores" class="col-10 alert alert-danger oculto"></div>
+                <div id="errores" class="col-12 alert alert-danger oculto"></div>
             </div>
-            <div class="row">
-                <div class="col-10 oculto alert alert-info" id="calculo">
+            <div class="row justify-content-center">
+                <div class="col-12 oculto alert alert-info" id="calculo">
                     <p>mayor salario anual: <em id="mayor-salario"></em></p>
                     <p>menor salario anual: <em id="menor-salario"></em></p>
                     <p>salario anual promedio: <em id="promedio-salario"></em></p>
