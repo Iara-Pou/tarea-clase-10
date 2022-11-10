@@ -122,6 +122,7 @@ $botonCalcular.onclick = function () {
 
     if (esExito) {
         esconderBotonesRemover();
+        esconderCartelErrores();
 
         $mensaje.classList.remove("oculto");
         document.querySelector("#mayor-salario").textContent = devolverNumeroMayor(salarios);
@@ -170,6 +171,11 @@ function manejarErrores(erroresSalarios) {
 function mostrarCartelErrores (){
     let $contenedorErrores = document.querySelector("#errores");
     $contenedorErrores.classList.remove("oculto");
+}
+
+function esconderCartelErrores(){
+    let $contenedorErrores = document.querySelector("#errores");
+    $contenedorErrores.classList.add("oculto");
 }
 
 
