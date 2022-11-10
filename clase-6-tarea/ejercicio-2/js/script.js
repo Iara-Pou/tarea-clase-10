@@ -139,7 +139,9 @@ $botonCalcular.onclick = function () {
 function manejarErrores(erroresSalarios) {
     borrarErroresAnteriores();
 
-    let $contenedorErrores = document.querySelector("#errores")
+    let $contenedorErrores = document.querySelector("#errores");
+    mostrarCartelErrores();
+
     let contadorErrores = 0;
     const salarios = Object.keys(erroresSalarios);
 
@@ -163,6 +165,11 @@ function manejarErrores(erroresSalarios) {
 
     return contadorErrores;
 
+}
+
+function mostrarCartelErrores (){
+    let $contenedorErrores = document.querySelector("#errores");
+    $contenedorErrores.classList.remove("oculto");
 }
 
 
