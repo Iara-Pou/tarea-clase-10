@@ -9,29 +9,38 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class="container">
+        <form>
 
-    <form>
-        <fieldset>
-            <label for="integrantes"> Ingresá cuantas personas hay en el grupo familiar: 
-                <input type="number" placeholder="cantidad de integrantes" id="integrantes">
-            </label> <br>
-            <button type="submit" id="boton-cantidad">Ingresar</button>
-            <button id="reinicio-general" type="reset">reiniciar</button>    
-        </fieldset>
+            <div class="row">
+                <div class="col-12">
+                    <label for="integrantes"> Ingresá cuantas personas hay en el grupo familiar: 
+                        <input type="number" placeholder="cantidad de integrantes" id="integrantes">
+                    </label> <br>
+                </div>
+                <div class="col-12">
+                    <button type="submit" id="boton-cantidad">Ingresar</button>
+                    <button id="reinicio-general" type="reset">reiniciar</button>   
+                </div>
+            </div>
+    
+            <div id="errores" class="oculto col-6"></div>
+    
+            <div id="contenedor-inputs-nuevos" class="row"></div> 
 
-        <div id="errores" class="oculto"></div>
-
-        <div id="contenedor-inputs-nuevos"></div> 
-
-        <button id="calculo-edades" class="oculto">calcular</button>
-        <button id="reinicio" class="oculto" type="reset">reiniciar</button> 
-
-    </form>
-
-    <div class="oculto" id="mensaje">
-        <p>La edad mayor es: <strong id="edad-mayor"></strong></p>
-        <p>La edad menor es: <strong id="edad-menor"></strong></p>
-        <p>El promedio de edades es: <strong id="edad-promedio"></strong></p>
+            <div class="row">
+                <button id="calculo-edades" class="oculto col">calcular</button>
+                <button id="reinicio" class="oculto col" type="reset">reiniciar</button> 
+            </div>
+           
+    
+        </form>
+    
+        <div class="oculto row" id="mensaje">
+            <p class="col-8">La edad mayor es: <strong id="edad-mayor"></strong></p>
+            <p class="col-8">La edad menor es: <strong id="edad-menor"></strong></p>
+            <p class="col-8">El promedio de edades es: <strong id="edad-promedio"></strong></p>
+        </div>
     </div>
       
     <script type="text/javascript" src="./js/calculos.js"></script>
