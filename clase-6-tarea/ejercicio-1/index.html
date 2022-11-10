@@ -13,29 +13,29 @@
 <body>
     <div class="container">
         <form>
-            <div class="row">
+            <div class="row alert alert-primary ">
                 <div class="col-12">
                     <label for="integrantes"> Ingresá cuantas personas hay en el grupo familiar:
                         <input type="number" placeholder="cantidad de integrantes" id="integrantes">
                     </label> <br>
                 </div>
                 <div class="col-12">
-                    <button type="submit" id="boton-cantidad">Ingresar</button>
-                    <button id="reinicio-general" type="reset">reiniciar</button>
+                    <button type="submit" id="boton-cantidad" class="btn btn-primary">Ingresar</button>
+                    <button id="reinicio-general" type="reset" class="btn btn-secondary">reiniciar</button>
                 </div>
             </div>
 
-            <div id="errores" class="oculto col-6"></div>
+            <div id="errores" class="oculto col-6 alert alert-danger"></div>
 
             <div id="contenedor-inputs-nuevos" class="row w-75"></div>
 
             <div class="row">
-                <button id="calculo-edades" class="oculto col">calcular</button>
-                <button id="reinicio" class="oculto col" type="reset">reiniciar</button>
+                <button id="calculo-edades" class="oculto col btn btn-primary">calcular</button>
+                <button id="reinicio" class="oculto col btn btn-secondary" type="reset">reiniciar</button>
             </div>
         </form>
         <section>
-            <div class="oculto row" id="mensaje">
+            <div class="oculto row alert alert-info" id="mensaje">
                 <p class="col-8">La edad mayor es: <strong id="edad-mayor"></strong></p>
                 <p class="col-8">La edad menor es: <strong id="edad-menor"></strong></p>
                 <p class="col-8">El promedio de edades es: <strong id="edad-promedio"></strong></p>
