@@ -28,6 +28,7 @@ function crearInputLabels(elementoPadre) {
 function crearBotonRemover(elementoPadre) {
     let botonRemover = document.createElement("button");
     botonRemover.textContent = `Eliminar integrante`;
+    botonRemover.classList="boton-remover ";
 
     botonRemover.onclick = function (){
         elementoPadre.remove();
@@ -37,6 +38,11 @@ function crearBotonRemover(elementoPadre) {
     }
 
     elementoPadre.appendChild(botonRemover);
+}
+
+function esconderBotonesRemover (){
+    const $botonesRemover = document.querySelectorAll(".boton-remover");
+    $botonesRemover.forEach(botonRemover => botonRemover.classList.add("oculto"))
 }
 
 function guardarSalariosEnArray(inputs) {
@@ -77,7 +83,7 @@ $botonReiniciar.onclick = function () {
 }
 
 $botonSumarIntegrante.onclick = function () {
-
+    
     if ($mensaje.innerHTML !== "") {
         esconderMensaje();
     }
@@ -106,6 +112,7 @@ $botonCalcular.onclick = function () {
     let esExito = manejarErrores(erroresSalarios) === 0;
 
     if (esExito) {
+        esconderBotonesRemover();
 
         $mensaje.classList.remove("oculto");
         document.querySelector("#mayor-salario").textContent = devolverNumeroMayor(salarios);
