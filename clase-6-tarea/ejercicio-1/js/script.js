@@ -15,7 +15,7 @@ function manejarErroresCantidad(textoError, input) {
     contenedor.textContent = textoError;
     $contenedorErrores.appendChild(contenedor);
 
-    input.classList.add("input-error"); 
+    input.classList.add("input-error");
 }
 
 function crearInputLabels(cantidadIntegrantes) {
@@ -35,7 +35,7 @@ function crearInputLabels(cantidadIntegrantes) {
 
 }
 
-function manejarErroresEdades (erroresEdades){
+function manejarErroresEdades(erroresEdades) {
     vaciarErroresAnteriores();
 
     let contadorErrores = 0;
@@ -46,7 +46,6 @@ function manejarErroresEdades (erroresEdades){
 
         if (error) {
             contadorErrores++;
-
             $contenedorErrores.classList.remove("oculto");
             $contenedorErrores.textContent = "Algunos inputs tienen valores equivocados, por favor, revisalos."
 
@@ -60,20 +59,21 @@ function manejarErroresEdades (erroresEdades){
             });
 
         } else {
-            conseguirInputPorValor(edad).forEach(error => error.classList.remove("input-error"));
+            conseguirInputPorValor(edad).forEach(error => error.classList.remove("input-error"))
+            document.querySelectorAll(".form-text").forEach(texto => texto.remove())
         }
-
-    })
+    }
+    );
 
     return contadorErrores;
 }
 
-function conseguirInputPorValor(valor){
+function conseguirInputPorValor(valor) {
     const $inputs = document.querySelectorAll("input");
 
     let resultado = [];
-    for(let i=0; i<$inputs.length; i++)
-        if($inputs[i].value === valor)
+    for (let i = 0; i < $inputs.length; i++)
+        if ($inputs[i].value === valor)
             resultado.push($inputs[i]);
 
     return resultado;
@@ -83,8 +83,8 @@ function esconderErrores() {
     $contenedorErrores.classList.add("oculto");
 }
 
-function vaciarErroresAnteriores(){
-    $contenedorErrores.innerHTML="";
+function vaciarErroresAnteriores() {
+    $contenedorErrores.innerHTML = "";
 }
 
 function vaciarContenedorInputs() {
@@ -125,7 +125,7 @@ $botonCantidad.onclick = function () {
         document.querySelector("#integrantes").classList.remove("input-error");
         esconderErrores();
         esconderMensajeFinal();
-        
+
         crearInputLabels(cantidadIntegrantes);
         if ($botonCalcular.classList.contains("oculto")) {
             mostrarBotones();
@@ -147,7 +147,7 @@ $botonCalcular.onclick = function () {
     const erroresEdades = {};
 
     edadesIntegrantes.forEach(edad => {
-            erroresEdades[edad] = validarEdadIntegrante(edad);
+        erroresEdades[edad] = validarEdadIntegrante(edad);
     })
 
     let esExito = manejarErroresEdades(erroresEdades) === 0;
@@ -162,7 +162,7 @@ $botonCalcular.onclick = function () {
         document.querySelector("#edad-mayor").textContent = devolverNumeroMayor(edadesIntegrantes);
         document.querySelector("#edad-menor").textContent = devolverNumeroMenor(edadesIntegrantes);
         document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
-    } 
+    }
 
     return false;
 }
