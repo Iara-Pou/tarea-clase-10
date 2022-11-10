@@ -45,6 +45,11 @@ function esconderBotonesRemover (){
     $botonesRemover.forEach(botonRemover => botonRemover.classList.add("oculto"))
 }
 
+function mostrarBotonesRemover (){
+    const $botonesRemover = document.querySelectorAll(".boton-remover");
+    $botonesRemover.forEach(botonRemover => botonRemover.classList.remove("oculto"))
+}
+
 function guardarSalariosEnArray(inputs) {
     const array = [];
     for (let i = 0; i < inputs.length; i++) {
@@ -83,10 +88,11 @@ $botonReiniciar.onclick = function () {
 }
 
 $botonSumarIntegrante.onclick = function () {
-    
+
     if ($mensaje.innerHTML !== "") {
         esconderMensaje();
     }
+    mostrarBotonesRemover();
     crearIntegranteNuevo();
 
     return false;
