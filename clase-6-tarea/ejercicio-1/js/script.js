@@ -25,8 +25,9 @@ function crearInputLabels(cantidadIntegrantes) {
         let inputNuevo = document.createElement("input");
 
         inputNuevo.placeholder = `integrante ${i}`;
-        inputNuevo.classList.add("edad");
-        labelNuevo.textContent = `ingresá su edad: `;
+        inputNuevo.classList = "edad form-control";
+        labelNuevo.textContent = `Ingrese la edad`;
+        labelNuevo.classList.add("form-label");
 
         $contenedorInputs.appendChild(labelNuevo);
         labelNuevo.appendChild(inputNuevo);
