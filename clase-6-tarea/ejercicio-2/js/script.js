@@ -15,7 +15,6 @@ function esconderMensaje() {
 }
 
 function crearInputLabels(elementoPadre) {
-
     let labelNuevo = document.createElement("label");
     let inputNuevo = document.createElement("input");
 
@@ -24,6 +23,12 @@ function crearInputLabels(elementoPadre) {
 
     elementoPadre.appendChild(labelNuevo);
     labelNuevo.appendChild(inputNuevo);
+}
+
+function crearBotonRemover(elementoPadre) {
+    let botonRemover = document.createElement("button");
+    botonRemover.textContent = `Eliminar integrante`;
+    elementoPadre.appendChild(botonRemover);
 }
 
 function guardarSalariosEnArray(inputs) {
@@ -68,6 +73,7 @@ $botonReiniciar.onclick = function () {
     borrarElementos();
     esconderBotonCalcular();
     esconderMensaje();
+    borrarErroresAnteriores();
     return false;
 }
 
@@ -76,11 +82,18 @@ $botonSumarIntegrante.onclick = function () {
     if ($mensaje.innerHTML !== "") {
         esconderMensaje();
     }
-
-    crearInputLabels($contenedor);
-    mostrarBotonCalcular();
+    crearIntegranteNuevo();
 
     return false;
+}
+
+function crearIntegranteNuevo(){
+    const contenedorIntegrante = document.createElement("div");
+    $contenedor.appendChild(contenedorIntegrante);
+
+    crearInputLabels(contenedorIntegrante);
+    crearBotonRemover(contenedorIntegrante);
+    mostrarBotonCalcular();
 }
 
 $botonCalcular.onclick = function () {
