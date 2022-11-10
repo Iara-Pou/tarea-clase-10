@@ -6,12 +6,6 @@ label {
     display: none;
 }
 
-#calculo{
-border: 2px solid black;
-padding: 1% 2%;
-margin: 2% auto;
-}
-
 .error{
     border: 2px solid red;
 }
