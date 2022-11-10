@@ -89,7 +89,7 @@ function vaciarContenedorInputs() {
 
 function esconderMensajeFinal() {
     let $mensaje = document.querySelector("#mensaje");
-    $mensaje.classList = "oculto";
+    $mensaje.classList.add("oculto");
 }
 
 function esconderBotones() {
@@ -118,7 +118,7 @@ $botonCantidad.onclick = function () {
     let esExito = validarCantidadIntegrantes(cantidadIntegrantes) === "";
 
     if (esExito) {
-        document.querySelector("#integrantes").classList = "";
+        document.querySelector("#integrantes").classList.remove("input-error");
         esconderErrores();
         esconderMensajeFinal();
         
@@ -154,7 +154,7 @@ $botonCalcular.onclick = function () {
 
         document.querySelectorAll(".edad").forEach(elemento => elemento.classList.remove("input-error"));
 
-        $mensaje.classList = "";
+        $mensaje.classList.remove("oculto");
         document.querySelector("#edad-mayor").textContent = devolverNumeroMayor(edadesIntegrantes);
         document.querySelector("#edad-menor").textContent = devolverNumeroMenor(edadesIntegrantes);
         document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
