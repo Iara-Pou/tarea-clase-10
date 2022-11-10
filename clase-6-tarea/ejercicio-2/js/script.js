@@ -28,6 +28,11 @@ function crearInputLabels(elementoPadre) {
 function crearBotonRemover(elementoPadre) {
     let botonRemover = document.createElement("button");
     botonRemover.textContent = `Eliminar integrante`;
+
+    botonRemover.onclick = function (){
+        elementoPadre.remove();
+    }
+
     elementoPadre.appendChild(botonRemover);
 }
 
