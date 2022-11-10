@@ -11,37 +11,38 @@
 </head>
 
 <body>
-
-    <form>
-        <fieldset>
-            <p>Ingresá cuantas personas hay en el grupo familiar:</p>
-            <button id="sumar-integrante">sumar integrante</button>
-            <button id="reiniciar">reiniciar</button>
-        </fieldset>
-
-        <div id="contenedor-inputs-nuevos"></div>
-
-        <button id="calcular-salario" class="oculto" type="submit">calcular</button>
-
-    </form>
-    <section>
-        <div id="errores"></div>
-    </section>
-    <section>
-        <div class="oculto" id="calculo">
-            <p>mayor salario anual: <em id="mayor-salario"></em></p>
-            <p>menor salario anual: <em id="menor-salario"></em></p>
-            <p>salario anual promedio: <em id="promedio-salario"></em></p>
-            <p>salario mensual promedio: <em id="promedio-mensual-salario"></em></p>
-        </div>
-    </section>
-
-
+    <div class="container">
+        <form>
+            <div class="row">
+                    <p>Ingresá cuantas personas hay en el grupo familiar:</p>
+                    <button id="sumar-integrante" class="col-4">sumar integrante</button>
+                    <button id="reiniciar" class="col-4">reiniciar</button>
+            </div>
+            <div class="row">
+                <div id="contenedor-inputs-nuevos" class="col-10"></div>
+                <button id="calcular-salario" class="oculto col-6" type="submit">calcular</button>
+            </div>
+        </form>
+        <section>
+            <div class="row">
+                <div id="errores" class="col-10"></div>
+            </div>
+            <div class="row">
+                <div class="oculto col-10" id="calculo">
+                    <p>mayor salario anual: <em id="mayor-salario"></em></p>
+                    <p>menor salario anual: <em id="menor-salario"></em></p>
+                    <p>salario anual promedio: <em id="promedio-salario"></em></p>
+                    <p>salario mensual promedio: <em id="promedio-mensual-salario"></em></p>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="./js/funciones.js" type="text/javascript"></script>
     <script src="../ejercicio-1/js/calculos.js" type="text/javascript"></script>
     <script src="./js/script.js" type="text/javascript"></script>
     <script src="./js/pruebas.js" type="text/javascript"></script>
+
 </body>
 
 </html>
