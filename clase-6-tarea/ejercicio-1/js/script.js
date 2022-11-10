@@ -48,6 +48,9 @@ function manejarErroresEdades(erroresEdades) {
             contadorErrores++;
             $contenedorErrores.classList.remove("oculto");
             $contenedorErrores.textContent = "Algunos inputs tienen valores equivocados, por favor, revisalos."
+            
+            //esta linea borra errores de abajo de inputs
+            document.querySelectorAll(".form-text").forEach(texto => texto.remove())
 
             conseguirInputPorValor(edad).forEach(input => {
                 input.classList.add("input-error");
