@@ -90,13 +90,13 @@ function esconderMensajeFinal() {
 }
 
 function esconderBotones() {
-    $botonCalcular.classList = "oculto";
-    $botonReinicio.classList = "oculto";
+    $botonCalcular.classList.add("oculto");
+    $botonReinicio.classList.add("oculto");
 }
 
 function mostrarBotones() {
-    $botonCalcular.classList = " ";
-    $botonReinicio.classList = " ";
+    $botonCalcular.classList.remove("oculto");
+    $botonReinicio.classList.remove("oculto");
 }
 
 
