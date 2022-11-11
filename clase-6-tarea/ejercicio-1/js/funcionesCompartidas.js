@@ -26,3 +26,21 @@ function devolverNumeroMayor(numeros) {
     return numeroMayor;
 }
 
+function mostrar(elemento) {
+    elemento.classList.remove("oculto");
+}
+
+function esconder(elemento) {
+    elemento.classList.add("oculto");
+}
+
+function conseguirInputPorValor(valor) {
+    const $inputs = document.querySelectorAll("input");
+
+    let resultado = [];
+    for (let i = 0; i < $inputs.length; i++)
+        if ($inputs[i].value === valor)
+            resultado.push($inputs[i]);
+
+    return resultado;
+}
