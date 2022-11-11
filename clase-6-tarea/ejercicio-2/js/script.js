@@ -27,15 +27,17 @@ function crearBotonRemover(elementoPadre, elementoNuevo = "button") {
     botonRemover.textContent = `Eliminar integrante`;
     botonRemover.classList = "boton-remover btn btn-danger col-sm-3 ";
 
-    botonRemover.onclick = function () {
-        elementoPadre.remove();
-        if ($contenedorInputs.innerHTML === "") {
-            esconder($botonCalcular);
-            borrarErroresAnteriores();
-        }
-    }
-
+    botonRemover.onclick = removerContenedor;
     elementoPadre.appendChild(botonRemover);
+}
+
+function removerContenedor(evento){
+    const elementoPadre = evento.target.parentNode;
+    elementoPadre.remove();
+    if ($contenedorInputs.innerHTML === "") {
+        esconder($botonCalcular);
+        borrarErroresAnteriores();
+    }
 }
 
 function guardarSalarios(inputs) {
