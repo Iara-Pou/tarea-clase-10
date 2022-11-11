@@ -1,24 +1,28 @@
-function mostrarBotonCalcular() {
-    $botonCalcular.classList.remove("oculto");
+function mostrar(elemento) {
+    elemento.classList.remove("oculto");
 }
 
-function esconderBotonCalcular() {
-    $botonCalcular.classList.add("oculto");
+function esconder(elemento) {
+    elemento.classList.add("oculto");
 }
 
 function borrarElementos() {
     $contenedor.innerHTML = "";
 }
 
-function esconderMensaje() {
-    $mensaje.classList.add("oculto");
+function esconderBotonesRemover() {
+    document.querySelectorAll(".boton-remover").forEach(botonRemover => esconder(botonRemover));
+}
+
+function mostrarBotonesRemover() {
+    document.querySelectorAll(".boton-remover").forEach(botonRemover => mostrar(botonRemover))
 }
 
 function crearInputLabels(elementoPadre) {
     let labelNuevo = document.createElement("label");
     let inputNuevo = document.createElement("input");
 
-    inputNuevo.classList ="salario form-control";
+    inputNuevo.classList = "salario form-control";
     labelNuevo.textContent = `Ingresá su salario anual`;
     labelNuevo.classList = "form-label  col-sm-9";
 
@@ -29,27 +33,17 @@ function crearInputLabels(elementoPadre) {
 function crearBotonRemover(elementoPadre) {
     let botonRemover = document.createElement("button");
     botonRemover.textContent = `Eliminar integrante`;
-    botonRemover.classList="boton-remover btn btn-danger col-sm-3 ";
+    botonRemover.classList = "boton-remover btn btn-danger col-sm-3 ";
 
-    botonRemover.onclick = function (){
+    botonRemover.onclick = function () {
         elementoPadre.remove();
-        if($contenedor.innerHTML === ""){
-            esconderBotonCalcular();
+        if ($contenedor.innerHTML === "") {
+            esconder($botonCalcular);
             borrarErroresAnteriores();
         }
     }
 
     elementoPadre.appendChild(botonRemover);
-}
-
-function esconderBotonesRemover (){
-    const $botonesRemover = document.querySelectorAll(".boton-remover");
-    $botonesRemover.forEach(botonRemover => botonRemover.classList.add("oculto"))
-}
-
-function mostrarBotonesRemover (){
-    const $botonesRemover = document.querySelectorAll(".boton-remover");
-    $botonesRemover.forEach(botonRemover => botonRemover.classList.remove("oculto"))
 }
 
 function guardarSalariosEnArray(inputs) {
@@ -60,20 +54,21 @@ function guardarSalariosEnArray(inputs) {
     return array;
 }
 
-function conseguirInputPorValor(valor){
+function conseguirInputPorValor(valor) {
     const $inputs = document.querySelectorAll("input");
     let resultado = [];
-    for(let i=0; i<$inputs.length; i++)
-        if($inputs[i].value === valor)
+    for (let i = 0; i < $inputs.length; i++)
+        if ($inputs[i].value === valor)
             resultado.push($inputs[i]);
-            
+
     return resultado;
 }
 
-function borrarErroresAnteriores(){
+function borrarErroresAnteriores() {
     document.querySelector("#errores").textContent = "";
 }
 
+const $contenedorErrores = document.querySelector("#errores");
 const $contenedor = document.querySelector("#contenedor-inputs-nuevos")
 const $mensaje = document.querySelector("#calculo");
 
@@ -83,8 +78,8 @@ const $botonReiniciar = document.querySelector("#reiniciar")
 
 $botonReiniciar.onclick = function () {
     borrarElementos();
-    esconderBotonCalcular();
-    esconderMensaje();
+    esconder($botonCalcular);
+    esconder($mensaje);
     borrarErroresAnteriores();
     return false;
 }
@@ -92,7 +87,7 @@ $botonReiniciar.onclick = function () {
 $botonSumarIntegrante.onclick = function () {
 
     if ($mensaje.innerHTML !== "") {
-        esconderMensaje();
+        esconder($mensaje);
     }
     mostrarBotonesRemover();
     crearIntegranteNuevo();
@@ -100,21 +95,21 @@ $botonSumarIntegrante.onclick = function () {
     return false;
 }
 
-function crearIntegranteNuevo(){
+function crearIntegranteNuevo() {
     const contenedorIntegrante = document.createElement("div");
     contenedorIntegrante.classList = "row";
     $contenedor.appendChild(contenedorIntegrante);
 
     crearInputLabels(contenedorIntegrante);
     crearBotonRemover(contenedorIntegrante);
-    mostrarBotonCalcular();
+    mostrar($botonCalcular);
 }
 
 $botonCalcular.onclick = function () {
     let salarios = guardarSalariosEnArray(document.querySelectorAll(".salario"));
 
     let erroresSalarios = {};
-    salarios.forEach(salario=>{
+    salarios.forEach(salario => {
         erroresSalarios[salario] = validarSalario(salario);
     })
 
@@ -122,17 +117,16 @@ $botonCalcular.onclick = function () {
 
     if (esExito) {
         esconderBotonesRemover();
-        esconderCartelErrores();
-
+        esconder($contenedorErrores);
         $mensaje.classList.remove("oculto");
         document.querySelector("#mayor-salario").textContent = devolverNumeroMayor(salarios);
         document.querySelector("#menor-salario").textContent = devolverNumeroMenor(salarios);
         document.querySelector("#promedio-salario").textContent = devolverPromedio(salarios);
         document.querySelector("#promedio-mensual-salario").textContent = calcularPromedioMensual(salarios);
 
-        esconderBotonCalcular();
+        esconder($botonCalcular)
 
-    } 
+    }
 
     return false;
 }
@@ -140,9 +134,7 @@ $botonCalcular.onclick = function () {
 function manejarErrores(erroresSalarios) {
     borrarErroresAnteriores();
 
-    let $contenedorErrores = document.querySelector("#errores");
-    mostrarCartelErrores();
-
+    mostrar($contenedorErrores);
     let contadorErrores = 0;
     const salarios = Object.keys(erroresSalarios);
 
@@ -153,9 +145,9 @@ function manejarErrores(erroresSalarios) {
             contadorErrores++;
 
             let textoError = document.createElement("p");
-            textoError.textContent= error;
+            textoError.textContent = error;
             $contenedorErrores.appendChild(textoError);
-            
+
             conseguirInputPorValor(salario).forEach(error => error.classList.add("error"));
 
         } else {
@@ -167,15 +159,3 @@ function manejarErrores(erroresSalarios) {
     return contadorErrores;
 
 }
-
-function mostrarCartelErrores (){
-    let $contenedorErrores = document.querySelector("#errores");
-    $contenedorErrores.classList.remove("oculto");
-}
-
-function esconderCartelErrores(){
-    let $contenedorErrores = document.querySelector("#errores");
-    $contenedorErrores.classList.add("oculto");
-}
-
-
