@@ -77,16 +77,6 @@ function vaciarContenedorInputs() {
     $contenedorInputs.innerHTML = "";
 }
 
-function esconderBotones() {
-    esconder($botonCalcular);
-    esconder($botonReinicio);
-}
-
-function mostrarBotones() {
-    mostrar($botonCalcular);
-    mostrar($botonReinicio);
-}
-
 const $botonCantidad = document.querySelector("#boton-cantidad");
 const $botonCalcular = document.querySelector("#calculo-edades");
 const $botonReinicio = document.querySelector("#reinicio");
@@ -109,7 +99,8 @@ $botonCantidad.onclick = function () {
 
         crearInputLabels(cantidadIntegrantes);
         if ($botonCalcular.classList.contains("oculto")) {
-            mostrarBotones();
+            mostrar($botonCalcular);
+            mostrar($botonReinicio);
         }
 
     } else {
@@ -133,7 +124,8 @@ $botonCalcular.onclick = function () {
 
     if (esExito) {
         esconder($contenedorErrores);
-        esconderBotones();
+        esconder($botonCalcular);
+        esconder($botonReinicio);
 
         document.querySelectorAll(".edad").forEach(elemento => elemento.classList.remove("input-error"));
 
@@ -148,8 +140,9 @@ $botonCalcular.onclick = function () {
 
 $botonReinicioGeneral.onclick = function () {
     document.querySelector("#integrantes").value = "";
-    esconderBotones();
     vaciarContenedorInputs();
+    esconder($botonCalcular);
+    esconder($botonReinicio);
     esconder($mensajeResultado);
     esconder($contenedorErrores);
 
