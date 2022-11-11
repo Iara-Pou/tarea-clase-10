@@ -69,17 +69,6 @@ function manejarErroresEdades(erroresEdades) {
     return contadorErrores;
 }
 
-function conseguirInputPorValor(valor) {
-    const $inputs = document.querySelectorAll("input");
-
-    let resultado = [];
-    for (let i = 0; i < $inputs.length; i++)
-        if ($inputs[i].value === valor)
-            resultado.push($inputs[i]);
-
-    return resultado;
-}
-
 function vaciarErroresAnteriores() {
     $contenedorErrores.innerHTML = "";
     document.querySelectorAll(".form-text").forEach(texto => texto.remove())
