@@ -22,8 +22,8 @@ function crearInputLabels(elementoPadre) {
     labelNuevo.appendChild(inputNuevo);
 }
 
-function crearBotonRemover(elementoPadre) {
-    let botonRemover = document.createElement("button");
+function crearBotonRemover(elementoPadre, elementoNuevo = "button") {
+    const botonRemover = document.createElement(`${elementoNuevo}`);
     botonRemover.textContent = `Eliminar integrante`;
     botonRemover.classList = "boton-remover btn btn-danger col-sm-3 ";
 
