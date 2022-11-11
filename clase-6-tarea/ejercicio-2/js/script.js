@@ -38,12 +38,12 @@ function crearBotonRemover(elementoPadre) {
     elementoPadre.appendChild(botonRemover);
 }
 
-function guardarSalariosEnArray(inputs) {
-    const array = [];
+function guardarSalarios(inputs) {
+    const salarios = [];
     for (let i = 0; i < inputs.length; i++) {
-        array[i] = inputs[i].value;
+        salarios[i] = inputs[i].value;
     }
-    return array;
+    return salarios;
 }
 
 function borrarErroresAnteriores() {
@@ -119,7 +119,7 @@ $botonSumarIntegrante.onclick = function () {
 }
 
 $botonCalcular.onclick = function () {
-    let salarios = guardarSalariosEnArray(document.querySelectorAll(".salario"));
+    let salarios = guardarSalarios(document.querySelectorAll(".salario"));
 
     let erroresSalarios = {};
     salarios.forEach(salario => {
