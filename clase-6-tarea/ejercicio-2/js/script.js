@@ -50,32 +50,6 @@ function borrarErroresAnteriores() {
     document.querySelector("#errores").textContent = "";
 }
 
-const $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
-const $contenedorErrores = document.querySelector("#errores");
-const $mensajeResultado = document.querySelector("#calculo");
-
-const $botonSumarIntegrante = document.querySelector("#sumar-integrante");
-const $botonCalcular = document.querySelector("#calcular-salario");
-const $botonReiniciar = document.querySelector("#reiniciar")
-
-$botonReiniciar.onclick = function () {
-    borrarElementos();
-    esconder($botonCalcular);
-    esconder($mensajeResultado);
-    borrarErroresAnteriores();
-    return false;
-}
-
-$botonSumarIntegrante.onclick = function () {
-
-    if ($mensajeResultado.innerHTML !== "") {
-        esconder($mensajeResultado);
-    }
-    mostrarBotonesRemover();
-    crearIntegranteNuevo();
-
-    return false;
-}
 
 function crearIntegranteNuevo() {
     const contenedorIntegrante = document.createElement("div");
@@ -85,32 +59,6 @@ function crearIntegranteNuevo() {
     crearInputLabels(contenedorIntegrante);
     crearBotonRemover(contenedorIntegrante);
     mostrar($botonCalcular);
-}
-
-$botonCalcular.onclick = function () {
-    let salarios = guardarSalariosEnArray(document.querySelectorAll(".salario"));
-
-    let erroresSalarios = {};
-    salarios.forEach(salario => {
-        erroresSalarios[salario] = validarSalario(salario);
-    })
-
-    let esExito = manejarErrores(erroresSalarios) === 0;
-
-    if (esExito) {
-        esconderBotonesRemover();
-        esconder($contenedorErrores);
-
-        document.querySelector("#mayor-salario").textContent = devolverNumeroMayor(salarios);
-        document.querySelector("#menor-salario").textContent = devolverNumeroMenor(salarios);
-        document.querySelector("#promedio-salario").textContent = devolverPromedio(salarios);
-        document.querySelector("#promedio-mensual-salario").textContent = calcularPromedioMensual(salarios);
-        mostrar($mensajeResultado);
-
-        esconder($botonCalcular);
-    }
-
-    return false;
 }
 
 function manejarErrores(erroresSalarios) {
@@ -141,3 +89,57 @@ function manejarErrores(erroresSalarios) {
     return contadorErrores;
 
 }
+
+const $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
+const $contenedorErrores = document.querySelector("#errores");
+const $mensajeResultado = document.querySelector("#calculo");
+
+const $botonSumarIntegrante = document.querySelector("#sumar-integrante");
+const $botonCalcular = document.querySelector("#calcular-salario");
+const $botonReiniciar = document.querySelector("#reiniciar")
+
+$botonReiniciar.onclick = function () {
+    borrarElementos();
+    esconder($botonCalcular);
+    esconder($mensajeResultado);
+    borrarErroresAnteriores();
+    return false;
+}
+
+$botonSumarIntegrante.onclick = function () {
+
+    if ($mensajeResultado.innerHTML !== "") {
+        esconder($mensajeResultado);
+    }
+    mostrarBotonesRemover();
+    crearIntegranteNuevo();
+
+    return false;
+}
+
+$botonCalcular.onclick = function () {
+    let salarios = guardarSalariosEnArray(document.querySelectorAll(".salario"));
+
+    let erroresSalarios = {};
+    salarios.forEach(salario => {
+        erroresSalarios[salario] = validarSalario(salario);
+    })
+
+    let esExito = manejarErrores(erroresSalarios) === 0;
+
+    if (esExito) {
+        esconderBotonesRemover();
+        esconder($contenedorErrores);
+
+        document.querySelector("#mayor-salario").textContent = devolverNumeroMayor(salarios);
+        document.querySelector("#menor-salario").textContent = devolverNumeroMenor(salarios);
+        document.querySelector("#promedio-salario").textContent = devolverPromedio(salarios);
+        document.querySelector("#promedio-mensual-salario").textContent = calcularPromedioMensual(salarios);
+        mostrar($mensajeResultado);
+
+        esconder($botonCalcular);
+    }
+
+    return false;
+}
+
