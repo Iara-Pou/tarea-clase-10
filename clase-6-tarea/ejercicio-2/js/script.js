@@ -102,6 +102,7 @@ $botonReiniciar.onclick = function () {
     borrarElementos();
     esconder($botonCalcular);
     esconder($mensajeResultado);
+    esconder($contenedorErrores);
     borrarErroresAnteriores();
     return false;
 }
