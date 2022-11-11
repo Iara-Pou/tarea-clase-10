@@ -26,12 +26,11 @@ function crearInputLabels(cantidadIntegrantes) {
         inputNuevo.placeholder = `integrante ${i}`;
         inputNuevo.classList = "edad form-control";
         labelNuevo.textContent = `Ingrese la edad`;
-        labelNuevo.classList = "form-label col-6";
+        labelNuevo.classList = "form-label col-12";
 
         $contenedorInputs.appendChild(labelNuevo);
         labelNuevo.appendChild(inputNuevo);
     }
-
 }
 
 function manejarErroresEdades(erroresEdades) {
