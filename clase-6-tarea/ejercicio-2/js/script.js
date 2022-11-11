@@ -7,7 +7,7 @@ function esconder(elemento) {
 }
 
 function borrarElementos() {
-    $contenedor.innerHTML = "";
+    $contenedorInputs.innerHTML = "";
 }
 
 function esconderBotonesRemover() {
@@ -23,8 +23,8 @@ function crearInputLabels(elementoPadre) {
     let inputNuevo = document.createElement("input");
 
     inputNuevo.classList = "salario form-control";
+    labelNuevo.classList = "form-label col-sm-9";
     labelNuevo.textContent = `Ingresá su salario anual`;
-    labelNuevo.classList = "form-label  col-sm-9";
 
     elementoPadre.appendChild(labelNuevo);
     labelNuevo.appendChild(inputNuevo);
@@ -37,7 +37,7 @@ function crearBotonRemover(elementoPadre) {
 
     botonRemover.onclick = function () {
         elementoPadre.remove();
-        if ($contenedor.innerHTML === "") {
+        if ($contenedorInputs.innerHTML === "") {
             esconder($botonCalcular);
             borrarErroresAnteriores();
         }
@@ -68,9 +68,9 @@ function borrarErroresAnteriores() {
     document.querySelector("#errores").textContent = "";
 }
 
+const $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
 const $contenedorErrores = document.querySelector("#errores");
-const $contenedor = document.querySelector("#contenedor-inputs-nuevos")
-const $mensaje = document.querySelector("#calculo");
+const $mensajeResultado = document.querySelector("#calculo");
 
 const $botonSumarIntegrante = document.querySelector("#sumar-integrante");
 const $botonCalcular = document.querySelector("#calcular-salario");
@@ -79,15 +79,15 @@ const $botonReiniciar = document.querySelector("#reiniciar")
 $botonReiniciar.onclick = function () {
     borrarElementos();
     esconder($botonCalcular);
-    esconder($mensaje);
+    esconder($mensajeResultado);
     borrarErroresAnteriores();
     return false;
 }
 
 $botonSumarIntegrante.onclick = function () {
 
-    if ($mensaje.innerHTML !== "") {
-        esconder($mensaje);
+    if ($mensajeResultado.innerHTML !== "") {
+        esconder($mensajeResultado);
     }
     mostrarBotonesRemover();
     crearIntegranteNuevo();
@@ -98,7 +98,7 @@ $botonSumarIntegrante.onclick = function () {
 function crearIntegranteNuevo() {
     const contenedorIntegrante = document.createElement("div");
     contenedorIntegrante.classList = "row";
-    $contenedor.appendChild(contenedorIntegrante);
+    $contenedorInputs.appendChild(contenedorIntegrante);
 
     crearInputLabels(contenedorIntegrante);
     crearBotonRemover(contenedorIntegrante);
@@ -118,14 +118,14 @@ $botonCalcular.onclick = function () {
     if (esExito) {
         esconderBotonesRemover();
         esconder($contenedorErrores);
-        $mensaje.classList.remove("oculto");
+
         document.querySelector("#mayor-salario").textContent = devolverNumeroMayor(salarios);
         document.querySelector("#menor-salario").textContent = devolverNumeroMenor(salarios);
         document.querySelector("#promedio-salario").textContent = devolverPromedio(salarios);
         document.querySelector("#promedio-mensual-salario").textContent = calcularPromedioMensual(salarios);
+        mostrar($mensajeResultado);
 
-        esconder($botonCalcular)
-
+        esconder($botonCalcular);
     }
 
     return false;
