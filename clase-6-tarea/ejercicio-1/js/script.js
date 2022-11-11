@@ -1,9 +1,9 @@
 function guardarEdadesIntegrantes(numeros) {
-    const arrayNuevo = [];
+    const edades = [];
     for (let i = 0; i < numeros.length; i++) {
-        arrayNuevo[i] = numeros[i].value;
+        edades[i] = numeros[i].value;
     }
-    return arrayNuevo;
+    return edades;
 }
 
 function manejarErroresCantidad(textoError, input) {
