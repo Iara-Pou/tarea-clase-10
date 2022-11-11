@@ -107,7 +107,6 @@ function mostrarBotones() {
     $botonReinicio.classList.remove("oculto");
 }
 
-
 const $botonCantidad = document.querySelector("#boton-cantidad");
 const $botonCalcular = document.querySelector("#calculo-edades");
 const $botonReinicio = document.querySelector("#reinicio");
