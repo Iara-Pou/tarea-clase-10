@@ -58,8 +58,6 @@ console.assert(
 
 }
 
-//para la prueba de pasar un array de otro tipo a number, puedo poner que si ingreso [] con string, tiene que incluir Nan el nuevo, con includes()
-
 pruebaDevolverMayor();
 pruebaDevolverMenor();
 pruebaDevolverPromedio();
